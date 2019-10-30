@@ -18,7 +18,7 @@ ruby를 설치하고 나서 수많은 jekyll theme를 접하게 되었다. [이�
 <br><br>
  처음에는 fork를 통해 블로그를 만들려고 하였으나 내 github의 초록잔디를 위해 jekyll theme를 직접 다운로드받아 만들게 되었다.<br><br>
  <img src="../assets/img/jaranara.PNG">
- <div style="text-align:center;text-decoration:line-through">자라나라 잔디잔디</div>
+ <div style="text-align:center;text-decoration:line-through">자라나라 할로윈 노란잔디</div>
 
  <br><br>
  subling.github.io로 새 repository를 생성하고 다운받은 tale의 폴더를 repository에 넣어주었다. 이후 _config.yml 파일을 수정하였다. 드디어 subling's BLOG가 만들어졌다.<br><br>
