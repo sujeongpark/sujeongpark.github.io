@@ -13,16 +13,16 @@ jekyll을 이용하여 subling's BLOG를 만들었다. jekyll을 사용하기 �
 
 <br><br>
 ruby를 설치하고 나서 수많은 jekyll theme를 접하게 되었다. [이곳](http://jekyllthemes.org/)에서 많은 테마들을 살펴볼 수 있다. 너무 많은 테마들이 있어 무엇을 해야할지 고민되었다. 고민 끝에 깔끔한 디자인을 갖춘 tale을 선택했다.<br><br>
-<img src="../assets/img/jekyll_theme.PNG">
+![jekyll_theme](https://user-images.githubusercontent.com/42509046/67875607-f2861980-fb79-11e9-98da-bf0f0dc67a70.PNG)
 
 <br><br>
  처음에는 fork를 통해 블로그를 만들려고 하였으나 내 github의 초록잔디를 위해 jekyll theme를 직접 다운로드받아 만들게 되었다.<br><br>
- <img src="../assets/img/jaranara.PNG">
+ ![jaranara](https://user-images.githubusercontent.com/42509046/67875580-e601c100-fb79-11e9-8dc3-c25193919fb9.PNG)
  <div style="text-align:center;text-decoration:line-through">자라나라 할로윈 노란잔디</div>
 
  <br><br>
  subling.github.io로 새 repository를 생성하고 다운받은 tale의 폴더를 repository에 넣어주었다. 이후 _config.yml 파일을 수정하였다. 드디어 subling's BLOG가 만들어졌다.<br><br>
- <img src="../assets/img/subling_blog.PNG">
+![subling_blog](https://user-images.githubusercontent.com/42509046/67875631-fade5480-fb79-11e9-922a-bf36e63ab7cb.PNG)
 
 <br>
 > 아무래도 첫 포스팅이다 보니 글을 어떻게 써야할지 어려움이 느껴졌다. <br><del>그래서 어떻게 마무리해야할지 잘 모르겠다.ㅎㅎ</del>
