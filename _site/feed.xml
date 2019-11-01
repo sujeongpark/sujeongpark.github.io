@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-11-01T11:43:45+09:00</updated><id>http://localhost:4000/</id><title type="html">subling’s BLOG</title><subtitle>bling bling</subtitle><author><name>SujeongPark</name><email>s2017s08@e-mirim.hs.kr</email></author><entry><title type="html">TDD란 무엇일까?</title><link href="http://localhost:4000/2019-11-01/what-is-tdd" rel="alternate" type="text/html" title="TDD란 무엇일까?" /><published>2019-11-01T00:00:00+09:00</published><updated>2019-11-01T00:00:00+09:00</updated><id>http://localhost:4000/2019-11-01/what-is-tdd</id><content type="html" xml:base="http://localhost:4000/2019-11-01/what-is-tdd">&lt;h1 id=&quot;tdd-test-driven-development---테스트-주도-개발&quot;&gt;TDD (Test Driven Development) - 테스트 주도 개발&lt;/h1&gt;
+&lt;p&gt;회사에서 교육시간에 TDD를 배우게 되었다. 과연 TDD(Test-Driven development)란 무엇일까?&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;프로그램을 작성하기 전에 테스트 먼저 하라!&lt;br /&gt; Test the program before you write it.&lt;/em&gt;&lt;br /&gt;&lt;br /&gt;
+- 켄트 벡(Kent Beck)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;tdd의-정의&quot;&gt;TDD의 정의&lt;/h2&gt;
+&lt;p&gt;TDD는 “업무 코드를 작성하기 전에 테스트 코드를 먼저 만드는 것”이라고 할 수 있다. 즉 코드를 검증하는 테스트 코드를 먼저
+만든 다음에 실제 작성해야 하는 프로그램 코드 작성에 들어가는 것이다. TDD를 사용하면 명시적인 코드로 개발 종료조건을 정해놓게 된다.
+따라서 &lt;b&gt;테스트 케이스 작성으로 구현을 시작하는 것&lt;/b&gt;, 그것이 바로 TDD라 할 수 있다.
+&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;tdd의-목표&quot;&gt;TDD의 목표&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;잘 동작하는 깔끔한 코드&lt;br /&gt;Clean code that works&lt;/em&gt;&lt;br /&gt;&lt;br /&gt;
+- 론 제프리(Ron Jeffries)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;
+TDD에서는 정상적으로 동작하는 코드만이 목표가 아니라 작성된 코드가 명확한 의미를 전달할 수 있도록 작성되어야 한다고 말한다.
+따라서 “제대로 동작함(works)”뿐 아니라 “깔끔함(Clean)”까지 동등한 수준의 개발 목표로 삼는다.
+&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;tdd-cycle&quot;&gt;TDD Cycle&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://s3.amazonaws.com/ckl-website-static/wp-content/uploads/2017/03/TDD-e1492712699769-300x300.png&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+TDD는 &lt;b&gt;테스트 코드 작성 -&amp;gt; 코드 구현 -&amp;gt; 리팩토링&lt;/b&gt; 순으로 이루어진다.&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;처음에는 실패하는 테스트를 만든다. 이것이 의미하는 바는 테스트 케이스(코드)를 작성하는 것이다.&lt;/li&gt;
+  &lt;li&gt;이후 단계에서 이전 단계에서 작성한 테스트 케이스를 통과하는 코드를 구현한다.&lt;/li&gt;
+  &lt;li&gt;마지막으로 코드에서 중복이나 불필요한 것을 제거하는 등의 리팩토링 과정을 거친다.
+&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;예시를-한번-들어보자&quot;&gt;예시를 한번 들어보자.&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;b&gt;Design&lt;/b&gt;&lt;br /&gt;
+두 숫자를 더한 값을 리턴하는 add 메소드를 구현해보자.&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;Test(Fail)&lt;/b&gt;&lt;br /&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public class Calculator {
+  public int add(int a, int b) {
+      return 0;
+  }
+
+  public static void main(String[] args) {
+      Calculator calc = new Calculator();
+      System.out.println( calc.sum(10, 20) == 30);
+      System.out.println( calc.sum(1, 2) == 3);
+      System.out.println( calc.sum(-10, 20) == 10);
+      System.out.println( calc.sum(0, 0) == 0);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;실행결과&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;false
+false
+false
+true
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;add 메소드는 컴파일 에러만 나지 않도록 해놓고, 내부는 비어둔 상태이다. 즉 add 메소드를 먼저 구현하지 않고, 테스트 코드를 먼저 만들어놓았다.
+테스트 코드에 해당하는 테스트 케이스를 모두 만족하면, add 메소드가 정상적으로 작성되었다고 판단할 것이다.
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;Implement&lt;/b&gt;&lt;br /&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public class Calculator {
+  public int add(int a, int b) {
+      return a+b;
+  }
+  ...
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;add 메소드를 구현한다. 두 개의 인자를 넘겨받아 서로 더하여 값을 리턴해준다. 
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;Test(Pass)&lt;/b&gt;&lt;br /&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public class Calculator {
+  public int add(int a, int b) {
+      return a+b;
+  }
+    
+  public static void main(String[] args) {
+      Calculator calc = new Calculator();
+      System.out.println( calc.sum(10, 20) == 30);
+      System.out.println( calc.sum(1, 2) == 3);
+      System.out.println( calc.sum(-10, 20) == 10);
+      System.out.println( calc.sum(0, 0) == 0);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;실행결과&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;true
+true
+true
+true
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;모두 &lt;code&gt;true&lt;/code&gt;가 출력된다. 이로써 미리 작성한 테스트 케이스를 모두 통과하는 코드를 구현하였다. 앞에서 명시적인 코드로 정해놓은 개발 종료조건을 달성한 것이다. 이후에는 코드를 리팩토링하는 과정을 걸치게 된다. 예시로 작성한 add 메소드는 간단하기에 리팩토링 단계를 거치지 않아도 괜찮지만 만약, 코드가 길고 복잡해질수록 리팩토링 과정이 중요해지게 된다.&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;만약 이후에, &lt;code&gt;add 메소드에 두 개보다 적거나 많은 인자를 받게 된다면 어떻게 해야할까?&lt;/code&gt; 혹은 &lt;code&gt;넘겨받은 인자가 int 타입이 아니면 어떻게 해야할까?&lt;/code&gt; 등 새로운 문제를 발견한다면 다시 Design 단계부터 시작해 테스트 코드를 작성하고, 작성한 테스트 케이스를 모두 통과하는 코드를 구현하는 과정이 계속 반복될 것이다.
+&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;글을-끝마치며&quot;&gt;글을 끝마치며…&lt;/h2&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;이렇게 TDD에 대해 알게 되었다. 앞으로는 코드를 작성할 때 테스트 코드를 먼저 작성하고 코드를 구현하는 습관을 들여야할 것 같다.
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;참고&quot;&gt;참고&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://repo.yona.io/doortts/blog/issue/2&quot;&gt;테스트 주도 개발&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://cheesecakelabs.com/blog/tdd-mobile-dev-matter-timing/&quot;&gt;TDD on mobile dev, a matter of timing&lt;/a&gt; (TDD Cycle 이미지 출처)&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content><author><name>subling</name></author><summary type="html">TDD (Test Driven Development) - 테스트 주도 개발 회사에서 교육시간에 TDD를 배우게 되었다. 과연 TDD(Test-Driven development)란 무엇일까? 프로그램을 작성하기 전에 테스트 먼저 하라! Test the program before you write it. - 켄트 벡(Kent Beck)</summary></entry><entry><title type="html">subling’s BLOG 오픈</title><link href="http://localhost:4000/2019-10-31/subling-blog-open" rel="alternate" type="text/html" title="subling's BLOG 오픈" /><published>2019-10-31T00:00:00+09:00</published><updated>2019-10-31T00:00:00+09:00</updated><id>http://localhost:4000/2019-10-31/subling-blog-open</id><content type="html" xml:base="http://localhost:4000/2019-10-31/subling-blog-open">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;첫-개발블로그의-첫-포스팅&quot;&gt;첫 개발블로그의 첫 포스팅&lt;/h2&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;jekyll을 이용하여 subling’s BLOG를 만들었다. jekyll을 사용하기 위해 ruby부터 설치하는 과정을 거쳤다. 설치부터 블로그 생성하기까지의 과정은 아래의 링크를 참고했다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://shryu8902.github.io/jekyll/jekyll-on-windows/&quot;&gt;[Jekyll] 윈도우에서 지킬 설치 및 블로그 생성하기&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+ruby를 설치하고 나서 수많은 jekyll theme를 접하게 되었다. &lt;a href=&quot;http://jekyllthemes.org/&quot;&gt;이곳&lt;/a&gt;에서 많은 테마들을 살펴볼 수 있다. 너무 많은 테마들이 있어 무엇을 해야할지 고민되었다. 고민 끝에 깔끔한 디자인을 갖춘 tale을 선택했다.&lt;br /&gt;&lt;br /&gt;
+&lt;img src=&quot;https://user-images.githubusercontent.com/42509046/67875607-f2861980-fb79-11e9-98da-bf0f0dc67a70.PNG&quot; alt=&quot;jekyll_theme&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+ 처음에는 fork를 통해 블로그를 만들려고 하였으나 내 github의 초록잔디를 위해 jekyll theme를 직접 다운로드받아 만들게 되었다.&lt;br /&gt;&lt;br /&gt;
+ &lt;img src=&quot;https://user-images.githubusercontent.com/42509046/67875580-e601c100-fb79-11e9-8dc3-c25193919fb9.PNG&quot; alt=&quot;jaranara&quot; /&gt;&lt;/p&gt;
+&lt;div style=&quot;text-align:center;text-decoration:line-through&quot;&gt;자라나라 할로윈 노란잔디&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+ subling.github.io로 새 repository를 생성하고 다운받은 tale의 폴더를 repository에 넣어주었다. 이후 _config.yml 파일을 수정하였다. 드디어 subling’s BLOG가 만들어졌다.&lt;br /&gt;&lt;br /&gt;
+&lt;img src=&quot;https://user-images.githubusercontent.com/42509046/67875631-fade5480-fb79-11e9-922a-bf36e63ab7cb.PNG&quot; alt=&quot;subling_blog&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;아무래도 첫 포스팅이다 보니 글을 어떻게 써야할지 어려움이 느껴졌다. &lt;br /&gt;&lt;del&gt;그래서 어떻게 마무리해야할지 잘 모르겠다.ㅎㅎ&lt;/del&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;포스팅을-끝마치며&quot;&gt;포스팅을 끝마치며…&lt;/h2&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;첫 포스팅을 작성했는데 이렇게 만들어진 블로그를 보니 뿌듯하다. 앞으로 알게된 것이나 정리하고 싶은 것들을 기록하는 공간으로 subling’s BLOG를 채워나가야겠다!&lt;/p&gt;</content><author><name>subling</name></author><summary type="html">첫 개발블로그의 첫 포스팅 jekyll을 이용하여 subling’s BLOG를 만들었다. jekyll을 사용하기 위해 ruby부터 설치하는 과정을 거쳤다. 설치부터 블로그 생성하기까지의 과정은 아래의 링크를 참고했다.</summary></entry></feed>
