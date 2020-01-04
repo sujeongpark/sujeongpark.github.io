@@ -5,7 +5,7 @@ author: "subling"
 permalink: /about/
 ---
 
-# Sujeong Park : subling
+# Sujeong Park
 
 - [GitHub](https://github.com/subling)
 - [Facebook](https://www.facebook.com/crystalpark02)
