@@ -1,8 +1,8 @@
 # Site settings
-title:          subling's BLOG
+title:          'Bling'x2 Blog
 description:    "bling bling"
 baseurl:        ""
-url:            "https://subling.github.io"
+url:            "https://sujeongpark.github.io"
 
 # Google Analytics
 google_analytics: UA—XXXXXXXX-X
@@ -10,7 +10,7 @@ google_analytics: UA—XXXXXXXX-X
 # Author
 author:
   name:         SujeongPark
-  url:          https://github.com/subling
+  url:          https://github.com/sujeongpark
   email:        s2017s08@e-mirim.hs.kr
 
 # Build settings
